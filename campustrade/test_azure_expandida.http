@@ -1,0 +1,48 @@
+### =================================
+### TESTES API CAMPUSTRADE - AZURE EXPANDIDA
+### =================================
+
+### IMPORTANTE: Substitua pela sua URL real!
+@azureUrl = https://campustrade-api-seunome.azurewebsites.net
+
+### 1. Verificar API online
+GET {{azureUrl}}/
+
+### 2. Listar categorias
+GET {{azureUrl}}/categorias
+
+### 3. Criar produto no Azure
+POST {{azureUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Livro de Estruturas de Dados",
+    "descricao": "Livro completo sobre estruturas de dados e algoritmos em Java.",
+    "preco": 120.00,
+    "categoria": "Livros",
+    "vendedor": "Pedro Oliveira"
+}
+
+### 4. Buscar produtos criados
+GET {{azureUrl}}/produtos
+
+### 5. Buscar por categoria
+GET {{azureUrl}}/produtos/buscar?categoria=Livros
+
+### 6. Ver estatísticas
+GET {{azureUrl}}/produtos/estatisticas
+
+### 7. Atualizar produto
+PUT {{azureUrl}}/produtos/1
+Content-Type: application/json
+
+{
+    "titulo": "Livro de Estruturas de Dados - 2ª Edição",
+    "descricao": "Edição revisada e ampliada do livro de estruturas de dados.",
+    "preco": 135.00,
+    "categoria": "Livros",
+    "vendedor": "Pedro Oliveira"
+}
+
+### 8. Verificar documentação no Azure
+GET {{azureUrl}}/docs

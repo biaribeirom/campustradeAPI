@@ -1,0 +1,110 @@
+### =================================
+### TESTES API CAMPUSTRADE - EXPANDIDA
+### =================================
+
+@baseUrl = http://localhost:8000
+
+### 1. Verificar se API está funcionando
+GET {{baseUrl}}/
+
+### 2. Listar categorias disponíveis
+GET {{baseUrl}}/categorias
+
+### 3. Criar produtos para teste (com categoria válida)
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Livro de Python para Iniciantes",
+    "descricao": "Excelente livro para aprender Python do zero. Muitos exemplos práticos.",
+    "preco": 85.50,
+    "categoria": "Livros",
+    "vendedor": "João Silva"
+}
+
+### 4. Criar segundo produto
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Notebook Lenovo i5",
+    "descricao": "Notebook em ótimo estado, 8GB RAM, SSD 256GB, ideal para programação.",
+    "preco": 2500.00,
+    "categoria": "Eletrônicos",
+    "vendedor": "Maria Santos"
+}
+
+### 5. Criar terceiro produto
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Camiseta Universitária",
+    "descricao": "Camiseta oficial da universidade, tamanho M, nova com etiqueta.",
+    "preco": 45.00,
+    "categoria": "Roupas",
+    "vendedor": "Carlos Lima"
+}
+
+### 6. Testar categoria inválida (deve dar erro 422)
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Produto Teste",
+    "descricao": "Testando categoria inválida para ver erro.",
+    "preco": 100.00,
+    "categoria": "Categoria Inexistente",
+    "vendedor": "Teste"
+}
+
+### 7. Listar todos os produtos
+GET {{baseUrl}}/produtos
+
+### 8. Buscar produtos por categoria
+GET {{baseUrl}}/produtos/buscar?categoria=Livros
+
+### 9. Buscar produtos por termo
+GET {{baseUrl}}/produtos/buscar?termo=python
+
+### 10. Buscar produtos por faixa de preço
+GET {{baseUrl}}/produtos/buscar?preco_min=50&preco_max=100
+
+### 11. Busca combinada (categoria + preço)
+GET {{baseUrl}}/produtos/buscar?categoria=Eletrônicos&preco_max=3000
+
+### 12. Atualizar produto (PUT)
+PUT {{baseUrl}}/produtos/1
+Content-Type: application/json
+
+{
+    "titulo": "Livro de Python - Edição Atualizada",
+    "descricao": "Livro de Python completamente atualizado com novos exemplos e exercícios.",
+    "preco": 95.00,
+    "categoria": "Livros",
+    "vendedor": "João Silva"
+}
+
+### 13. Tentar atualizar produto inexistente (deve dar 404)
+PUT {{baseUrl}}/produtos/999
+Content-Type: application/json
+
+{
+    "titulo": "Produto Inexistente",
+    "descricao": "Este produto não existe.",
+    "preco": 100.00,
+    "categoria": "Livros",
+    "vendedor": "Teste"
+}
+
+### 14. Ver estatísticas
+GET {{baseUrl}}/produtos/estatisticas
+
+### 15. Deletar produto
+DELETE {{baseUrl}}/produtos/3
+
+### 16. Tentar deletar produto inexistente (deve dar 404)
+DELETE {{baseUrl}}/produtos/999
+
+### 17. Verificar lista final
+GET {{baseUrl}}/produtos

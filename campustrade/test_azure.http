@@ -1,0 +1,48 @@
+### =================================
+### TESTES API CAMPUSTRADE - AZURE
+### =================================
+
+### IMPORTANTE: Substitua pela sua URL real!
+@azureUrl = https://campustrade-api-seunome.azurewebsites.net
+
+### 1. Testar se API está online no Azure
+GET {{azureUrl}}/
+
+### 2. Ver documentação no Azure
+GET {{azureUrl}}/docs
+
+### 3. Listar produtos no Azure
+GET {{azureUrl}}/produtos
+
+### 4. Criar produto no Azure
+POST {{azureUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Livro de Cálculo I",
+    "descricao": "Stewart, 7ª edição, algumas anotações a lápis",
+    "preco": 90.0,
+    "categoria": "Livros",
+    "vendedor": "Pedro Oliveira"
+}
+
+### 5. Criar segundo produto no Azure
+POST {{azureUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Notebook Dell",
+    "descricao": "i5, 8GB RAM, SSD 256GB, ótimo para estudos",
+    "preco": 1500.0,
+    "categoria": "Eletrônicos",
+    "vendedor": "Lucas Santos"
+}
+
+### 6. Listar produtos criados no Azure
+GET {{azureUrl}}/produtos
+
+### 7. Buscar produto específico no Azure
+GET {{azureUrl}}/produtos/1
+
+### 8. Buscar segundo produto no Azure
+GET {{azureUrl}}/produtos/2

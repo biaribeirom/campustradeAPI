@@ -1,0 +1,62 @@
+### =================================
+### TESTES API CAMPUSTRADE - LOCAL
+### =================================
+
+@baseUrl = http://localhost:8000
+
+### 1. Testar se API está online
+GET {{baseUrl}}/
+
+### 2. Verificar documentação automática
+GET {{baseUrl}}/docs
+
+### 3. Listar produtos (inicialmente vazio)
+GET {{baseUrl}}/produtos
+
+### 4. Criar primeiro produto
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Livro de Algoritmos e Estruturas de Dados",
+    "descricao": "Cormen et al., 3ª edição. Usado mas em ótimo estado.",
+    "preco": 120.0,
+    "categoria": "Livros",
+    "vendedor": "Maria Santos"
+}
+
+### 5. Criar segundo produto
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Calculadora HP 12C",
+    "descricao": "Calculadora financeira, funciona perfeitamente.",
+    "preco": 200.0,
+    "categoria": "Eletrônicos",
+    "vendedor": "Carlos Lima"
+}
+
+### 6. Criar terceiro produto
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+    "titulo": "Mesa de Estudos",
+    "descricao": "Mesa de madeira, 1,20m x 60cm, perfeita para estudos.",
+    "preco": 150.0,
+    "categoria": "Móveis",
+    "vendedor": "Ana Costa"
+}
+
+### 7. Listar todos os produtos criados
+GET {{baseUrl}}/produtos
+
+### 8. Buscar produto específico por ID
+GET {{baseUrl}}/produtos/1
+
+### 9. Buscar segundo produto
+GET {{baseUrl}}/produtos/2
+
+### 10. Tentar buscar produto inexistente (deve dar erro 404)
+GET {{baseUrl}}/produtos/999

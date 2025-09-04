@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+python-dotenv
+# Para desenvolvimento local (SQLite)
+# Para Azure SQL Server
+pyodbc
