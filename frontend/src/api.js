@@ -1,5 +1,5 @@
 // URL da sua API backend
-const BASE_URL = 'campustrade-ddhkangucjcqetgz.eastus2-01.azurewebsites.net';
+const BASE_URL = 'https://campustrade-ddhkangucjcqetgz.eastus2-01.azurewebsites.net/';
 
 // Função para listar produtos
 export const listarProdutos = async () => {
