@@ -1,5 +1,5 @@
 // URL da sua API backend
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://proud-beach-093a3fc0f.1.azurestaticapps.net/';
 
 // Função para listar produtos
 export const listarProdutos = async () => {
